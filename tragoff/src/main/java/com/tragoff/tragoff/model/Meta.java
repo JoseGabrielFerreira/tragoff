@@ -29,4 +29,26 @@ public class Meta {
     @ManyToOne
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
+
+
+    // mediaAtual = média de cigarros por dia desde o início da meta
+    public float calcularProgresso(float mediaAtual) {
+        float necessaria = cigarrosPorDiaInicial - cigarrosPorDiaMeta;
+        if (necessaria <= 0) {
+            return 0;
+        }
+        float atingida = cigarrosPorDiaInicial - mediaAtual;
+        float progresso = atingida / necessaria * 100;
+        if (progresso < 0) {
+            progresso = 0;
+        }
+        if (progresso > 100) {
+            progresso = 100;
+        }
+        return progresso;
+    }
+
+    public boolean estaConcluida() {
+        return "CONCLUIDA".equals(status);
+    }
 }

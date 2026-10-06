@@ -13,3 +13,8 @@ INSERT INTO gatilho (nome) VALUES
 ('Álcool'),
 ('Socialização'),
 ('Outro');
+
+
+USE tragoff;
+INSERT INTO pessoa (nome, email, senha) VALUES ('Administrador', 'admin@tragoff.com', 'admin');
+INSERT INTO administrador (id, nivel_acesso) VALUES (LAST_INSERT_ID(), 'TOTAL');

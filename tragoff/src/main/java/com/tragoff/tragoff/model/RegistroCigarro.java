@@ -28,4 +28,8 @@ public class RegistroCigarro {
     @ManyToOne
     @JoinColumn(name = "gatilho_id", referencedColumnName = "id")
     private Gatilho gatilho;
+
+    public float calcularGasto() {
+        return quantidade * tipoCigarro.getPrecoUnitario();
+    }
 }
