@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - TRAGOFF</title>
+
+    <link rel="stylesheet" href="css/tragoff.css">
+</head>
+
+<body>
+
+<div class="layout-interno">
+
+    <aside class="menu-lateral">
+
+        <div class="menu-logo">
+
+            <a href="dashboard.html" class="logo">
+
+                <svg viewBox="0 0 50 50" fill="none">
+                    <circle cx="25" cy="25" r="17" stroke="#00D4D8" stroke-width="4"/>
+                    <line x1="25" y1="5" x2="25" y2="20" stroke="#00D4D8" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M25 20H34" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+
+                <div class="logo-texto">
+                    TRAG<span>OFF</span>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <nav class="menu-links">
+
+            <a href="dashboard.html" class="ativo">
+                Dashboard
+            </a>
+
+            <a href="registrar.html">
+                Registrar
+            </a>
+
+            <a href="historico.html">
+                Histórico
+            </a>
+
+            <a href="metas.html">
+                Metas
+            </a>
+
+            <a href="perfil.html">
+                Perfil
+            </a>
+
+            <button type="button" class="menu-sair" onclick="sair()">
+                Sair
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <main class="conteudo-interno">
+
+        <div class="topo-pagina">
+
+            <h1 id="saudacao">
+                Olá!
+            </h1>
+
+            <p>
+                Acompanhe seus hábitos e sua evolução.
+            </p>
+
+        </div>
+
+
+        <section class="cards-resumo">
+
+            <div class="card-resumo">
+
+                <p>
+                    Cigarros hoje
+                </p>
+
+                <strong id="cigarrosHoje">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="card-resumo">
+
+                <p>
+                    Gasto hoje
+                </p>
+
+                <strong id="gastoHoje">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="card-resumo">
+
+                <p>
+                    Média diária
+                </p>
+
+                <strong id="mediaDiaria">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="card-resumo">
+
+                <p>
+                    Gasto total
+                </p>
+
+                <strong id="gastoTotal">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <section class="grade-conteudo">
+
+            <div class="card">
+
+                <h2 class="titulo-card">
+                    Últimos 7 dias
+                </h2>
+
+                <div id="graficoSeteDias">
+
+                    <p class="lista-vazia">
+                        Carregando...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2 class="titulo-card">
+                    Meta atual
+                </h2>
+
+                <div id="metaAtual">
+
+                    <p class="lista-vazia">
+                        Carregando...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="card" style="margin-top: 20px;">
+
+            <h2 class="titulo-card">
+                Informações de consumo
+            </h2>
+
+
+            <div class="lista">
+
+                <div class="item-lista">
+
+                    <div>
+                        <p>
+                            Horário de maior consumo
+                        </p>
+                    </div>
+
+                    <strong id="horarioMaiorConsumo">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="item-lista">
+
+                    <div>
+                        <p>
+                            Tipo mais consumido
+                        </p>
+                    </div>
+
+                    <strong id="tipoMaisConsumido">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="item-lista">
+
+                    <div>
+                        <p>
+                            Total de cigarros registrados
+                        </p>
+                    </div>
+
+                    <strong id="totalCigarros">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="js/comum.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

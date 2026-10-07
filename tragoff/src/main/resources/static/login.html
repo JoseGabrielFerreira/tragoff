@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Entrar - TRAGOFF</title>
+
+    <link rel="stylesheet" href="css/tragoff.css">
+</head>
+
+<body>
+
+<div class="pagina-login">
+
+    <div class="card-autenticacao">
+
+        <div class="cabecalho-autenticacao">
+
+            <a href="index.html" class="logo">
+
+                <svg viewBox="0 0 50 50" fill="none">
+                    <circle cx="25" cy="25" r="17" stroke="#00D4D8" stroke-width="4"/>
+                    <line x1="25" y1="5" x2="25" y2="20" stroke="#00D4D8" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M25 20H34" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+
+                <div class="logo-texto">
+                    TRAG<span>OFF</span>
+                </div>
+
+            </a>
+
+            <h1>Entrar</h1>
+
+            <p>
+                Entre na sua conta para continuar.
+            </p>
+
+        </div>
+
+
+        <form id="formLogin" class="formulario">
+
+            <div class="campo">
+
+                <label for="email">
+                    E-mail
+                </label>
+
+                <input
+                        type="email"
+                        id="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="senha">
+                    Senha
+                </label>
+
+                <input
+                        type="password"
+                        id="senha"
+                        placeholder="Digite sua senha"
+                        required
+                >
+
+            </div>
+
+
+            <div id="mensagemLogin" class="mensagem"></div>
+
+
+            <button type="submit" class="botao-formulario">
+                Entrar
+            </button>
+
+        </form>
+
+
+        <div class="link-formulario">
+
+            Ainda não possui uma conta?
+
+            <a href="cadastro.html">
+                Criar conta
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/comum.js"></script>
+<script src="js/usuario.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perfil - TRAGOFF</title>
+
+    <link rel="stylesheet" href="css/tragoff.css">
+</head>
+
+<body>
+
+<div class="layout-interno">
+
+    <aside class="menu-lateral">
+
+        <div class="menu-logo">
+
+            <a href="dashboard.html" class="logo">
+
+                <svg viewBox="0 0 50 50" fill="none">
+                    <circle cx="25" cy="25" r="17" stroke="#00D4D8" stroke-width="4"/>
+                    <line x1="25" y1="5" x2="25" y2="20" stroke="#00D4D8" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M25 20H34" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+
+                <div class="logo-texto">
+                    TRAG<span>OFF</span>
+                </div>
+
+            </a>
+
+        </div>
+
+        <nav class="menu-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="registrar.html">
+                Registrar
+            </a>
+
+            <a href="historico.html">
+                Histórico
+            </a>
+
+            <a href="metas.html">
+                Metas
+            </a>
+
+            <a href="perfil.html" class="ativo">
+                Perfil
+            </a>
+
+            <button type="button" class="menu-sair" onclick="sair()">
+                Sair
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <main class="conteudo-interno">
+
+        <div class="topo-pagina">
+
+            <h1>Meu perfil</h1>
+
+            <p>
+                Gerencie suas informações pessoais.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2 class="titulo-card">
+                Dados pessoais
+            </h2>
+
+
+            <form id="formPerfil" class="formulario">
+
+                <div class="grade-formulario">
+
+                    <div class="campo">
+
+                        <label for="nomePerfil">
+                            Nome
+                        </label>
+
+                        <input
+                                type="text"
+                                id="nomePerfil"
+                                required
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="emailPerfil">
+                            E-mail
+                        </label>
+
+                        <input
+                                type="email"
+                                id="emailPerfil"
+                                required
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="senhaPerfil">
+                            Nova senha
+                        </label>
+
+                        <input
+                                type="password"
+                                id="senhaPerfil"
+                                placeholder="Deixe vazio para manter a atual"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="acoes-formulario">
+
+                    <button
+                            type="submit"
+                            class="botao-principal"
+                    >
+                        Salvar alterações
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <div class="card" style="margin-top: 20px;">
+
+            <h2 class="titulo-card">
+                Perfil de fumante
+            </h2>
+
+
+            <form id="formFumante" class="formulario">
+
+                <div class="grade-formulario">
+
+                    <div class="campo">
+
+                        <label for="anosFumando">
+                            Anos fumando
+                        </label>
+
+                        <input
+                                type="number"
+                                id="anosFumando"
+                                min="0"
+                                required
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="cigarrosInicial">
+                            Cigarros por dia inicial
+                        </label>
+
+                        <input
+                                type="number"
+                                id="cigarrosInicial"
+                                min="1"
+                                required
+                        >
+
+                    </div>
+
+
+                    <div class="campo campo-completo">
+
+                        <label for="motivo">
+                            Motivo para parar
+                        </label>
+
+                        <textarea
+                                id="motivo"
+                                placeholder="Conte seu principal motivo"
+                                required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div id="mensagemPerfil" class="mensagem"></div>
+
+
+                <div class="acoes-formulario">
+
+                    <button
+                            type="submit"
+                            class="botao-principal"
+                    >
+                        Salvar perfil
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="js/comum.js"></script>
+<script src="js/perfil.js"></script>
+
+</body>
+
+</html>

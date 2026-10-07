@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registrar - TRAGOFF</title>
+
+    <link rel="stylesheet" href="css/tragoff.css">
+</head>
+
+<body>
+
+<div class="layout-interno">
+
+    <aside class="menu-lateral">
+
+        <div class="menu-logo">
+
+            <a href="dashboard.html" class="logo">
+
+                <svg viewBox="0 0 50 50" fill="none">
+                    <circle cx="25" cy="25" r="17" stroke="#00D4D8" stroke-width="4"/>
+                    <line x1="25" y1="5" x2="25" y2="20" stroke="#00D4D8" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M25 20H34" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+
+                <div class="logo-texto">
+                    TRAG<span>OFF</span>
+                </div>
+
+            </a>
+
+        </div>
+
+        <nav class="menu-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="registrar.html" class="ativo">
+                Registrar
+            </a>
+
+            <a href="historico.html">
+                Histórico
+            </a>
+
+            <a href="metas.html">
+                Metas
+            </a>
+
+            <a href="perfil.html">
+                Perfil
+            </a>
+
+            <button type="button" class="menu-sair" onclick="sair()">
+                Sair
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <main class="conteudo-interno">
+
+        <div class="topo-pagina">
+
+            <h1>Registrar cigarro</h1>
+
+            <p>
+                Registre um novo consumo.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <form id="formRegistro" class="formulario">
+
+                <div class="grade-formulario">
+
+                    <div class="campo">
+
+                        <label for="dataHora">
+                            Data e hora
+                        </label>
+
+                        <input
+                                type="datetime-local"
+                                id="dataHora"
+                                required
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="quantidade">
+                            Quantidade
+                        </label>
+
+                        <input
+                                type="number"
+                                id="quantidade"
+                                min="1"
+                                value="1"
+                                required
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="tipoCigarro">
+                            Tipo de cigarro
+                        </label>
+
+                        <select id="tipoCigarro" required>
+
+                            <option value="">
+                                Selecione o tipo
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="gatilho">
+                            Gatilho
+                        </label>
+
+                        <select id="gatilho">
+
+                            <option value="">
+                                Selecione o gatilho
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div id="mensagemRegistro" class="mensagem"></div>
+
+
+                <div class="acoes-formulario">
+
+                    <button
+                            type="submit"
+                            class="botao-principal"
+                    >
+                        Registrar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="js/comum.js"></script>
+<script src="js/registro.js"></script>
+
+</body>
+
+</html>

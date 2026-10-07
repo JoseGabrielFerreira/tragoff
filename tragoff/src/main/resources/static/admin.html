@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin - TRAGOFF</title>
+
+    <link rel="stylesheet" href="css/tragoff.css">
+</head>
+
+<body>
+
+<div class="layout-interno">
+
+    <aside class="menu-lateral">
+
+        <div class="menu-logo">
+
+            <a href="admin.html" class="logo">
+
+                <svg viewBox="0 0 50 50" fill="none">
+                    <circle cx="25" cy="25" r="17" stroke="#00D4D8" stroke-width="4"/>
+                    <line x1="25" y1="5" x2="25" y2="20" stroke="#00D4D8" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M25 20H34" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+
+                <div class="logo-texto">
+                    TRAG<span>OFF</span>
+                </div>
+
+            </a>
+
+        </div>
+
+        <nav class="menu-links">
+
+            <a href="#usuarios">
+                Usuários
+            </a>
+
+            <a href="#tipos">
+                Tipos de cigarro
+            </a>
+
+            <a href="#gatilhos">
+                Gatilhos
+            </a>
+
+            <button
+                    type="button"
+                    class="menu-sair"
+                    onclick="sairAdmin()"
+            >
+                Sair
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <main class="conteudo-interno">
+
+        <div class="topo-pagina">
+
+            <h1>
+                Administração
+            </h1>
+
+            <p>
+                Gerencie os dados do sistema.
+            </p>
+
+        </div>
+
+
+        <section
+                id="tipos"
+                class="card"
+        >
+
+            <h2 class="titulo-card">
+                Tipos de cigarro
+            </h2>
+
+
+            <form id="formTipo" class="formulario">
+
+                <div class="grade-formulario">
+
+                    <div class="campo">
+
+                        <label for="nomeTipo">
+                            Nome
+                        </label>
+
+                        <input
+                                type="text"
+                                id="nomeTipo"
+                                required
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="precoTipo">
+                            Preço unitário
+                        </label>
+
+                        <input
+                                type="number"
+                                id="precoTipo"
+                                step="0.01"
+                                min="0"
+                                required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div id="mensagemTipo" class="mensagem"></div>
+
+
+                <div class="acoes-formulario">
+
+                    <button
+                            type="submit"
+                            class="botao-principal"
+                    >
+                        Cadastrar tipo
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <div
+                    id="listaTipos"
+                    style="margin-top: 25px;"
+            >
+                Carregando...
+            </div>
+
+        </section>
+
+
+        <section
+                id="gatilhos"
+                class="card"
+                style="margin-top: 20px;"
+        >
+
+            <h2 class="titulo-card">
+                Gatilhos
+            </h2>
+
+
+            <form id="formGatilho" class="formulario">
+
+                <div class="campo">
+
+                    <label for="nomeGatilho">
+                        Nome
+                    </label>
+
+                    <input
+                            type="text"
+                            id="nomeGatilho"
+                            required
+                    >
+
+                </div>
+
+
+                <div id="mensagemGatilho" class="mensagem"></div>
+
+
+                <div class="acoes-formulario">
+
+                    <button
+                            type="submit"
+                            class="botao-principal"
+                    >
+                        Cadastrar gatilho
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <div
+                    id="listaGatilhos"
+                    style="margin-top: 25px;"
+            >
+                Carregando...
+            </div>
+
+        </section>
+
+
+        <section
+                id="usuarios"
+                class="card"
+                style="margin-top: 20px;"
+        >
+
+            <h2 class="titulo-card">
+                Usuários cadastrados
+            </h2>
+
+
+            <div class="tabela-container">
+
+                <table class="tabela">
+
+                    <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Cadastro</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody id="tabelaUsuarios">
+
+                    <tr>
+
+                        <td colspan="4">
+                            Carregando...
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="js/comum.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+
+</html>
