@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração - TRAGOFF</title>
+    <link rel="stylesheet" href="css/tragoff.css">
+    <script src="js/comum.js"></script>
+    <script src="js/admin.js"></script>
+</head>
+<body onload="iniciarAdmin()">
+
+<!-- Login do administrador -->
+<div id="admin_login" class="centro">
+    <a href="index.html"><img src="img/logo.svg" class="logo" alt="TRAGOFF"></a>
+    <h1>Área administrativa</h1>
+    <label for="admin_email">E-mail</label>
+    <input id="admin_email" type="email">
+    <label for="admin_senha">Senha</label>
+    <input id="admin_senha" type="password">
+    <button onclick="loginAdmin()">Entrar</button>
+</div>
+
+<!-- Painel -->
+<div id="admin_painel" class="conteudo" style="margin-left: 0; margin: 0 auto">
+    <img src="img/logo.svg" class="logo" alt="TRAGOFF">
+    <p style="margin-bottom: 20px"><a href="javascript:void(0)" onclick="sairAdmin()">Sair</a></p>
+
+    <div class="card">
+        <h2>Produtos</h2>
+        <label for="tipo_nome">Nome</label>
+        <input id="tipo_nome" type="text">
+        <label for="tipo_unidade">Unidade</label>
+        <select id="tipo_unidade">
+            <option value="cigarros">cigarros</option>
+            <option value="tragadas">tragadas</option>
+        </select>
+        <label for="tipo_preco">Preço padrão por unidade (0 = exige registrar a compra)</label>
+        <input id="tipo_preco" type="number" min="0" step="0.01" value="0">
+        <button onclick="cadastrarTipo()">Cadastrar produto</button>
+        <div id="listaTipos" style="margin-top: 20px"></div>
+    </div>
+
+    <div class="card">
+        <h2>Gatilhos</h2>
+        <label for="gatilho_nome">Nome</label>
+        <input id="gatilho_nome" type="text">
+        <button onclick="cadastrarGatilho()">Cadastrar gatilho</button>
+        <div id="listaGatilhos" style="margin-top: 20px"></div>
+    </div>
+
+    <div class="card" style="overflow-x: auto">
+        <h2>Usuários</h2>
+        <div id="listaUsuarios"></div>
+    </div>
+</div>
+
+</body>
+</html>

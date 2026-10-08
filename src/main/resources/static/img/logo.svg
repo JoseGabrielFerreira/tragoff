@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 50" fill="none">
+  <circle cx="25" cy="25" r="17" stroke="#00D4D8" stroke-width="4"/>
+  <line x1="25" y1="5" x2="25" y2="20" stroke="#00D4D8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M25 20H34" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
+  <text x="56" y="34" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#F2F2F2">TRAG<tspan fill="#00D4D8">OFF</tspan></text>
+</svg>

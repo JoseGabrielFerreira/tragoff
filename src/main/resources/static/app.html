@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAGOFF</title>
+    <link rel="stylesheet" href="css/tragoff.css">
+    <script src="js/comum.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body onload="iniciar()">
+
+<nav class="menu">
+    <div class="menu-topo">
+        <img src="img/logo.svg" class="logo" alt="TRAGOFF">
+        <p class="menu-subtitulo">Controle do seu consumo</p>
+    </div>
+
+    <div class="menu-links">
+        <a id="link_dashboard" href="javascript:void(0)" onclick="mostrarPagina('pagina_dashboard')">Dashboard</a>
+        <a id="link_registrar" href="javascript:void(0)" onclick="mostrarPagina('pagina_registrar')">Registrar consumo</a>
+        <a id="link_compras" href="javascript:void(0)" onclick="mostrarPagina('pagina_compras')">Compras</a>
+        <a id="link_historico" href="javascript:void(0)" onclick="mostrarPagina('pagina_historico')">Histórico</a>
+        <a id="link_metas" href="javascript:void(0)" onclick="mostrarPagina('pagina_metas')">Metas</a>
+        <a id="link_perfil" href="javascript:void(0)" onclick="mostrarPagina('pagina_perfil')">Perfil</a>
+    </div>
+
+    <a class="menu-sair" href="javascript:void(0)" onclick="sair()">Sair</a>
+</nav>
+
+<div class="conteudo">
+
+    <!-- DASHBOARD -->
+    <div id="pagina_dashboard">
+        <header class="topo-pagina">
+            <p class="eyebrow">VISÃO GERAL</p>
+            <h1 id="saudacao">Olá!</h1>
+            <p>Acompanhe seu consumo, gastos e evolução.</p>
+        </header>
+
+        <div class="grade" id="gastos"></div>
+
+        <div class="grade-conteudo">
+            <div class="card">
+                <div class="titulo-card">
+                    <h2>Consumo por produto</h2>
+                    <p>Os valores são mostrados na unidade de cada produto.</p>
+                </div>
+                <div id="porTipo"></div>
+            </div>
+
+            <div class="card">
+                <div class="titulo-card">
+                    <h2>Principais gatilhos</h2>
+                    <p>Registros que possuem um gatilho informado.</p>
+                </div>
+                <div id="gatilhos"></div>
+            </div>
+
+            <div class="card">
+                <div class="titulo-card">
+                    <h2>Últimos 7 dias</h2>
+                    <p>Veja como o consumo está evoluindo.</p>
+                </div>
+                <div id="ultimosDias"></div>
+            </div>
+
+            <div class="card">
+                <div class="titulo-card">
+                    <h2>Metas ativas</h2>
+                    <p>Acompanhe suas metas atuais.</p>
+                </div>
+                <div id="metasAtivas"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="titulo-card">
+                <h2>Informações</h2>
+            </div>
+            <div id="infos" class="lista"></div>
+        </div>
+    </div>
+
+    <!-- REGISTRAR CONSUMO -->
+    <div id="pagina_registrar">
+        <header class="topo-pagina">
+            <p class="eyebrow">NOVO REGISTRO</p>
+            <h1>Registrar consumo</h1>
+            <p>Adicione o que você consumiu e acompanhe seu histórico.</p>
+        </header>
+
+        <div class="card">
+            <form onsubmit="registrarConsumo(); return false;">
+                <div class="grade-formulario">
+                    <div class="campo">
+                        <label for="registrar_data">Data e hora</label>
+                        <input id="registrar_data" type="datetime-local">
+                    </div>
+
+                    <div class="campo">
+                        <label for="registrar_tipo">Produto</label>
+                        <select id="registrar_tipo" onchange="mostrarUnidade('registrar_tipo', 'registrar_unidade'); mostrarCompraAtual()"></select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="registrar_quantidade">Quantidade <span id="registrar_unidade" class="unidade"></span></label>
+                        <input id="registrar_quantidade" type="number" min="1" value="1">
+                    </div>
+
+                    <div class="campo">
+                        <label for="registrar_gatilho">Gatilho <span>(opcional)</span></label>
+                        <select id="registrar_gatilho"></select>
+                    </div>
+                </div>
+
+                <div id="compraAtual" class="aviso-compra">
+                    <strong>Como o gasto será calculado</strong>
+                    <p>Selecione um produto para ver a compra usada no cálculo. O preço não precisa ser informado novamente a cada consumo.</p>
+                </div>
+
+                <div class="acoes-formulario">
+                    <button class="botao-principal" type="submit">Registrar consumo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- COMPRAS -->
+    <div id="pagina_compras">
+        <header class="topo-pagina">
+            <p class="eyebrow">GASTOS</p>
+            <h1>Compras</h1>
+            <p>Registre o que você comprou para calcular o gasto dos seus consumos.</p>
+        </header>
+
+        <div class="card">
+            <div class="titulo-card">
+                <h2>Nova compra</h2>
+                <p>Registre um maço, um vape novo ou um pacote de tabaco.</p>
+            </div>
+
+            <div class="grade-formulario">
+                <div class="campo">
+                    <label for="compra_tipo">Produto</label>
+                    <select id="compra_tipo" onchange="mostrarUnidade('compra_tipo', 'compra_unidade')"></select>
+                </div>
+
+                <div class="campo">
+                    <label for="compra_preco">Preço pago (R$)</label>
+                    <input id="compra_preco" type="number" min="0.01" step="0.01" placeholder="Ex.: 14,00">
+                </div>
+
+                <div class="campo">
+                    <label for="compra_quantidade">Quantidade total <span id="compra_unidade" class="unidade"></span></label>
+                    <input id="compra_quantidade" type="number" min="1" placeholder="Ex.: 20">
+                </div>
+
+                <div class="aviso-compra">
+                    <strong>Exemplos</strong>
+                    <p>20 cigarros no maço, 5.000 tragadas em um vape </p>
+                </div>
+            </div>
+
+            <div class="acoes-formulario">
+                <button class="botao-principal" onclick="registrarCompra()">Registrar compra</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="titulo-card">
+                <h2>Minhas compras</h2>
+                <p>As compras mais recentes são usadas nos próximos registros daquele produto.</p>
+            </div>
+            <div class="tabela-container" id="tabelaCompras"></div>
+        </div>
+    </div>
+
+    <!-- HISTÓRICO -->
+    <div id="pagina_historico">
+        <header class="topo-pagina">
+            <p class="eyebrow">ACOMPANHAMENTO</p>
+            <h1>Histórico</h1>
+            <p>Veja seus registros de consumo e os gastos correspondentes.</p>
+        </header>
+
+        <div class="card">
+            <div class="tabela-container" id="tabelaHistorico"></div>
+        </div>
+    </div>
+
+    <!-- METAS -->
+    <div id="pagina_metas">
+        <header class="topo-pagina">
+            <p class="eyebrow">EVOLUÇÃO</p>
+            <h1>Metas</h1>
+            <p>Defina uma quantidade diária que você deseja alcançar.</p>
+        </header>
+
+        <div class="card">
+            <div class="titulo-card">
+                <h2>Nova meta</h2>
+                <p>Você pode criar uma meta de cigarros ou de tragadas.</p>
+            </div>
+
+            <div class="grade-formulario">
+                <div class="campo">
+                    <label for="meta_unidade">Meta em</label>
+                    <select id="meta_unidade">
+                        <option value="cigarros">Cigarros</option>
+                        <option value="tragadas">Tragadas</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="meta_inicial">Quanto consome por dia hoje</label>
+                    <input id="meta_inicial" type="number" min="1">
+                </div>
+
+                <div class="campo">
+                    <label for="meta_desejada">Quanto quer consumir por dia</label>
+                    <input id="meta_desejada" type="number" min="0">
+                </div>
+
+                <div class="campo">
+                    <label for="meta_inicio">Data de início</label>
+                    <input id="meta_inicio" type="date">
+                </div>
+
+                <div class="campo">
+                    <label for="meta_fim">Data final</label>
+                    <input id="meta_fim" type="date">
+                </div>
+            </div>
+
+            <div class="acoes-formulario">
+                <button class="botao-principal" onclick="criarMeta()">Criar meta</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="titulo-card"><h2>Minhas metas</h2></div>
+            <div class="tabela-container" id="listaMetas"></div>
+        </div>
+    </div>
+
+    <!-- PERFIL -->
+    <div id="pagina_perfil">
+        <header class="topo-pagina">
+            <p class="eyebrow">MINHA CONTA</p>
+            <h1>Perfil</h1>
+            <p>Atualize seus dados e informações sobre seu objetivo.</p>
+        </header>
+
+        <div class="grade-conteudo">
+            <div class="card">
+                <div class="titulo-card">
+                    <h2>Dados pessoais</h2>
+                    <p>Informações usadas para acessar sua conta.</p>
+                </div>
+                <div class="formulario">
+                    <div class="campo">
+                        <label for="perfil_nome">Nome</label>
+                        <input id="perfil_nome" type="text">
+                    </div>
+                    <div class="campo">
+                        <label for="perfil_email">E-mail</label>
+                        <input id="perfil_email" type="email">
+                    </div>
+                    <div class="campo">
+                        <label for="perfil_senha">Nova senha</label>
+                        <input id="perfil_senha" type="password" placeholder="Deixe vazio para manter a atual">
+                    </div>
+                    <button class="botao-principal" onclick="salvarUsuario()">Salvar dados</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="titulo-card">
+                    <h2>Perfil de fumante</h2>
+                    <p>Essas informações ajudam a acompanhar sua evolução.</p>
+                </div>
+                <div class="formulario">
+                    <div class="campo">
+                        <label for="perfil_unidade">Como você conta o seu consumo?</label>
+                        <select id="perfil_unidade" onchange="atualizarRotuloPerfil()">
+                            <option value="cigarros">Cigarros</option>
+                            <option value="tragadas">Tragadas (vape)</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="perfil_anos">Anos fumando</label>
+                        <input id="perfil_anos" type="number" min="0">
+                    </div>
+                    <div class="campo">
+                        <label id="perfil_rotulo" for="perfil_cigarros">Cigarros por dia antes de começar</label>
+                        <input id="perfil_cigarros" type="number" min="0">
+                    </div>
+                    <div class="campo">
+                        <label for="perfil_motivo">Motivo para parar</label>
+                        <textarea id="perfil_motivo" rows="4"></textarea>
+                    </div>
+                    <button class="botao-principal" onclick="salvarPerfil()">Salvar perfil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
